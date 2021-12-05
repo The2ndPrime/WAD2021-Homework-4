@@ -88,6 +88,5 @@ app.delete("/posts/:id", async (req, res) => {
 });
 
 app.use((req, res) => {
-  // res.status(404).sendFile("./views/404.html", { root: __dirname });
   res.status(404).render("404", { title: "404" });
 });
