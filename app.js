@@ -18,8 +18,8 @@ app.get("/", (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).render("404", { title: "404" });
-  });
+  res.status(404).render("404", { title: "404" });
+});
 
 app.get("/posts", async (req, res) => {
   try {
@@ -38,6 +38,22 @@ app.get("/posts/:id", async (req, res) => {
       req.params.id,
     ]);
     res.json(posts.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.post("/posts/", async (req, res) => {
+  try {
+    console.log("a post request has arrived");
+    const post = req.body;
+    console.log(req);
+    console.log(post);
+    const newpost = await pool.query(
+      "INSERT INTO posts(title, body, urllink) values ($1, $2, $3) RETURNING*",
+      [post.title, post.body, post.urllink]
+    );
+    res.json(newpost);
   } catch (err) {
     console.error(err.message);
   }
