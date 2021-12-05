@@ -16,8 +16,9 @@ app.set("view engine", "ejs");
 
 app.listen(3000);
 
-app.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+const _avatar_url =
+  "https://www.writeups.org/wp-content/uploads/Gordon-Freeman-Half-Life-Portrait-1.jpg";
+const _avatar_name = "Gordon Freeman";
 });
 
 app.use((req, res) => {
