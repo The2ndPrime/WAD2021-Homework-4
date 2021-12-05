@@ -44,7 +44,7 @@ app.get("/posts", async (req, res) => {
   }
 });
 
-app.get("/posts/:id", async (req, res) => {
+app.get("/singlepost/:id", async (req, res) => {
   try {
     const id = req.params.id;
     console.log(req.params.id);
