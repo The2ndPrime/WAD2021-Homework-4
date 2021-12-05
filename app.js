@@ -46,11 +46,13 @@ app.get("/posts", async (req, res) => {
 
 app.get("/posts/:id", async (req, res) => {
   try {
-    console.log("get a post request has arrived");
+    const id = req.params.id;
+    console.log(req.params.id);
+    console.log("get a single post request has arrived");
     const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [
-      req.params.id,
+      id,
     ]);
-    res.json(posts.rows[0]);
+    res.render("singlepost", { posts: posts.rows[0] });
   } catch (err) {
     console.error(err.message);
   }
