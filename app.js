@@ -74,13 +74,14 @@ app.post("/posts/", async (req, res) => {
 
 app.delete("/posts/:id", async (req, res) => {
   try {
+    console.log(req.params);
     const { id } = req.params;
     const post = req.body;
     console.log("delete a post request has arrived");
-    const deletepost = await pool.query("DELETE FROM nodetable WHERE id = $1", [
+    const deletepost = await pool.query("DELETE FROM posts WHERE id = $1", [
       id,
     ]);
-    res.json(post);
+    res.redirect("posts");
   } catch (err) {
     console.error(err.message);
   }
