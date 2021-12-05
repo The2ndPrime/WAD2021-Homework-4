@@ -2,10 +2,7 @@
   "name": "wad-2021-homework-4",
   "version": "0.1.0",
   "scripts": {
-    "start": "nodemon app.js",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
