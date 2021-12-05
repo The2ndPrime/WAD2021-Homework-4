@@ -1,5 +1,6 @@
 const express = require("express");
 const pool = require("./database");
+const cors = require("cors");
 const app = express();
 
 app.use(express.static(__dirname + "/res/styles"));
@@ -7,6 +8,8 @@ app.use(express.static(__dirname + "/res/images"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
+app.use(express.static("Public"));
 
 // register the ejs view engine
 app.set("view engine", "ejs");
