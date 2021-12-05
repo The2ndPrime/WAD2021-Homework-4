@@ -19,6 +19,9 @@ app.listen(3000);
 const _avatar_url =
   "https://www.writeups.org/wp-content/uploads/Gordon-Freeman-Half-Life-Portrait-1.jpg";
 const _avatar_name = "Gordon Freeman";
+
+app.get("/create", (req, res) => {
+  res.render("addnewpost");
 });
 
 app.use((req, res) => {
