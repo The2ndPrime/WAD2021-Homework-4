@@ -24,8 +24,14 @@ app.get("/create", (req, res) => {
   res.render("addnewpost");
 });
 
-app.use((req, res) => {
-  res.status(404).render("404", { title: "404" });
+app.get("/", async (req, res) => {
+  try {
+    console.log("get posts request has arrived");
+    const posts = await pool.query("SELECT * FROM posts");
+    res.render("posts", { posts: posts.rows });
+  } catch (err) {
+    console.error(err.message);
+  }
 });
 
 app.get("/posts", async (req, res) => {
