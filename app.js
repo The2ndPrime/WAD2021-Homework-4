@@ -49,9 +49,7 @@ app.get("/singlepost/:id", async (req, res) => {
     const id = req.params.id;
     console.log(req.params.id);
     console.log("get a single post request has arrived");
-    const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [
-      id,
-    ]);
+    const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
     res.render("singlepost", { posts: posts.rows[0] });
   } catch (err) {
     console.error(err.message);
