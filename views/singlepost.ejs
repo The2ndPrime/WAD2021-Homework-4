@@ -20,11 +20,11 @@
         <img class="media" src=" <%= posts.media_url %>" />
         <p class="post-text"> <%= posts.body %></p>
         <button class="like-icon" >
-            <img class="icon_url" src="/res/images/thumbs_up.png" />
+            <img class="icon_url" src="https://cdn-icons-png.flaticon.com/512/25/25297.png" alt="Thumbs up" height="20"/>
             <div class="likes"> <%= posts.likes %></div>
         </button>
     </div>
-    <a class="delete" data-del="<%= posts.id %>">Delete</a> 
+    <button class="delete" data-del="<%= posts.id %>">Delete</button> 
 </div> 
 <script> 
     const delreq = document.querySelector('a.delete'); 
