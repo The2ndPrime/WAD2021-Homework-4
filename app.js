@@ -61,8 +61,8 @@ app.post("/posts/", async (req, res) => {
     console.log("a post request has arrived");
     const post = req.body;
     const newpost = await pool.query(
-      "INSERT INTO posts(avatar_url, avatar_name, title, body) values ($1, $2, $3, $4) RETURNING*",
-      [_avatar_url, _avatar_name, post.title, post.body]
+      "INSERT INTO posts(avatar_url, avatar_name, title, media_url, body) values ($1, $2, $3, $4, $5) RETURNING*",
+      [_avatar_url, _avatar_name, post.title, post.media_url, post.body]
     );
     res.redirect("posts");
   } catch (err) {
