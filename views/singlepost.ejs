@@ -20,7 +20,7 @@
         <h4 class="title"> <%= posts.title %></h4>
         <img class="media" src=" <%= posts.media_url %>" />
         <p class="post-text"> <%= posts.body %></p>
-        <button class="like-icon" >
+        <button class="like-icon" id="like-<%= posts.id %>" data-id="<%= posts.id %>" onclick="LikePost(dataset.id)">
             <img class="icon_url" src="https://cdn-icons-png.flaticon.com/512/25/25297.png" alt="Thumbs up" height="20"/>
             <div class="likes"> <%= posts.likes %></div>
         </button>
@@ -34,7 +34,18 @@
         fetch(endpoint, { 
                 method: 'DELETE', 
             }).then(window.location.href = '/posts') 
-    }); 
+    });
+
+    function LikePost(id) {
+        const endpoint = `/singlepost/${id}`
+        const button = document.getElementById(`like-${id}`);
+        button.disabled = true
+
+        fetch(endpoint, {
+            method: 'POST',
+        })
+
+    }
 </script>
 </body>
 </html>
