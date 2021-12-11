@@ -26,7 +26,7 @@
                     <img class="media" src=" <%= post.media_url %>" />
                 </a>
                 <p class="post-text"> <%= post.body %></p>
-                <button class="like-icon">
+                <button class="like-icon" id="like-<%= post.id %>" data-id="<%= post.id %>" data-likes="<%= post.likes %>" onclick="LikePost(dataset.id, dataset.likes)">
                     <img class="icon_url" src="https://cdn-icons-png.flaticon.com/512/25/25297.png" alt="Thumbs up" height="20"/>
                     <div class="likes"> <%= post.likes %></div>
                 </button>
@@ -39,5 +39,20 @@
 
     </div>
     <%- include('./partials/footer.ejs') %>
+<script>
+    function LikePost(id, likes) {
+        const endpoint = `/singlepost/${id}`
+        const button = document.getElementById(`like-${id}`);
+        const likesDiv = button.getElementsByClassName('likes')[0]
+        var newLikes = parseInt(likes) + 1
+        likesDiv.innerHTML = ` ${newLikes}`
+        button.disabled = true
+
+        fetch(endpoint, {
+            method: 'POST',
+        })
+
+    }
+</script>
 </body>
 </html>
