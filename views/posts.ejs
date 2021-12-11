@@ -26,7 +26,7 @@
                     <img class="media" src=" <%= post.media_url %>" />
                 </a>
                 <p class="post-text"> <%= post.body %></p>
-                <button class="like-icon">
+                <button class="like-icon" userId="<%= post.id %>" onclick="updateLikes()">
                     <img class="icon_url" src="https://cdn-icons-png.flaticon.com/512/25/25297.png" alt="Thumbs up" height="20"/>
                     <div class="likes"> <%= post.likes %></div>
                 </button>

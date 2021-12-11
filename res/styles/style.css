@@ -12,13 +12,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(183, 218, 180);
+  margin-top: 20px;
+  margin-right: 120px;
+  margin-left: 120px;
 }
 
 .post-list {
     flex-direction: column;
-    margin-top: 20px;
-    margin-right: 70px;
-    margin-left: 70px;
 }
 .singlepost {
     margin: 20px 0;
@@ -70,23 +70,17 @@ body {
     color: darkolivegreen;
 }
 
-/*#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.delete {
+    margin-bottom: 20px;
+    font-size: larger;
 }
 
-#nav {
+.header {
   padding: 30px;
 }
-
-#nav a {
+  
+.header a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #27855a;
-}*/
