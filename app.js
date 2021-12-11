@@ -51,7 +51,11 @@ app.get("/singlepost/:id", async (req, res) => {
     console.log(req.params.id);
     console.log("get a single post request has arrived");
     const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
+    if (posts.rowCount > 0) {
     res.render("singlepost", { posts: posts.rows[0] });
+    } else {
+      res.status("404").send("404 - post does not exist");
+    }
   } catch (err) {
     console.error(err.message);
   }
