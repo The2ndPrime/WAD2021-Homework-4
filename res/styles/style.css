@@ -28,6 +28,10 @@ body {
     padding: 10px;
     background-color: white;
 }
+.create-post {
+    margin: 20px 0;
+}
+
 .post-header {
     display: flex;
     justify-content: flex-start;
@@ -73,6 +77,11 @@ body {
 .delete {
     margin-bottom: 20px;
     font-size: larger;
+    color: rgb(255, 255, 255);
+    background-color: rgb(60, 75, 39);
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
 }
 
 .header {
@@ -84,3 +93,17 @@ body {
   color: #2c3e50;
 }
 
+.submit {
+    font-size: larger;
+    color: rgb(255, 255, 255);
+    background-color: rgb(60, 75, 39);
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+}
+
+input {
+    border-radius: 3px;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+}
