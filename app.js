@@ -29,9 +29,7 @@ app.get("/create", (req, res) => {
 
 app.get("/", async (req, res) => {
   try {
-    console.log("get posts request has arrived");
-    const posts = await pool.query("SELECT * FROM posts");
-    res.render("posts", { posts: posts.rows });
+   res.redirect("posts")
   } catch (err) {
     console.error(err.message);
   }
