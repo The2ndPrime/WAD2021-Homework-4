@@ -3,18 +3,21 @@ const pool = require("./database");
 const cors = require("cors");
 const app = express();
 
-app.use(express.static(__dirname + "/res/styles"));
-app.use(express.static(__dirname + "/res/images"));
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.use(express.static("Public"));
+
 
 // register the ejs view engine
 app.set("view engine", "ejs");
 
 app.listen(3000);
+
+app.use(express.static(__dirname + '/res/styles'));
+app.use(express.static(__dirname + "/res/images"));
+app.use(express.static('Public'));
 
 const _avatar_url =
   "https://www.writeups.org/wp-content/uploads/Gordon-Freeman-Half-Life-Portrait-1.jpg";

@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <title>Single post</title>
+</head>
+
+
+<body>
+    <%- include('./partials/header.ejs') %> 
+
+
+    <div class="post-list">
+    <% if (posts.length > 0) { %>
+        <% posts.forEach(post => { %>
+            <div class="singlepost">
+                <div class="post-header">
+                    <img class="avatar" src="<%= post.avatar_url %>" />
+                    <h5 class="name"><%= post.avatar_name %> </h5>
+                </div>
+                <h5 class="create-time"> <%= post.create_time %></h5>
+                <h4 class="title"> <%= post.title %></h4>
+                <a href="/singlepost/<%=post.id%>">
+                    <img class="media" src=" <%= post.media_url %>" />
+                </a>
+                <p class="post-text"> <%= post.body %></p>
+                <button class="like-icon">
+                    <img class="icon_url" src="https://cdn-icons-png.flaticon.com/512/25/25297.png" alt="Thumbs up" height="20"/>
+                    <div class="likes"> <%= post.likes %></div>
+                </button>
+
+            </div>
+            <% }) %>
+            <% } else { %>
+                <p>You did not post anything...</p>
+            <% } %>
+
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

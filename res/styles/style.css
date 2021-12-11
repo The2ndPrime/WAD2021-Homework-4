@@ -1,0 +1,92 @@
+* {
+    font-family: "Open Sans", sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(183, 218, 180);
+}
+
+.post-list {
+    flex-direction: column;
+    margin-top: 20px;
+    margin-right: 70px;
+    margin-left: 70px;
+}
+.singlepost {
+    margin: 20px 0;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+}
+.post-header {
+    display: flex;
+    justify-content: flex-start;
+}
+.avatar {
+    height: 45px;
+    width: 50px;
+    border-radius: 4px;
+}
+.create-time{
+    color: darkcyan;
+    font-weight: lighter;
+    display: flex;
+    justify-content: flex-start;
+}
+.media {
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+    object-fit: cover;
+}
+.post-text {
+    font-size: 16px;
+    font-weight: bolder;
+}
+.like-icon {
+    display: flex;
+}
+.url{
+    margin: 5px, 5px;
+    justify-content: flex-start;
+    height: 50px;
+    border-radius: 4px;
+    text-align: left;
+}
+  
+.name{
+    font-weight: bold;
+    margin: 5px 5px;
+    color: darkolivegreen;
+}
+
+/*#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #27855a;
+}*/
