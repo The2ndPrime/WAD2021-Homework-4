@@ -3,21 +3,18 @@ const pool = require("./database");
 const cors = require("cors");
 const app = express();
 
-
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-
 
 // register the ejs view engine
 app.set("view engine", "ejs");
 
 app.listen(3000);
 
-app.use(express.static(__dirname + '/res/styles'));
+app.use(express.static(__dirname + "/res/styles"));
 app.use(express.static(__dirname + "/res/images"));
-app.use(express.static('Public'));
+app.use(express.static("Public"));
 
 const _avatar_url =
   "https://www.writeups.org/wp-content/uploads/Gordon-Freeman-Half-Life-Portrait-1.jpg";
@@ -29,7 +26,7 @@ app.get("/create", (req, res) => {
 
 app.get("/", async (req, res) => {
   try {
-   res.redirect("posts")
+    res.redirect("posts");
   } catch (err) {
     console.error(err.message);
   }
@@ -52,7 +49,7 @@ app.get("/singlepost/:id", async (req, res) => {
     console.log("get a single post request has arrived");
     const posts = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
     if (posts.rowCount > 0) {
-    res.render("singlepost", { posts: posts.rows[0] });
+      res.render("singlepost", { posts: posts.rows[0] });
     } else {
       res.status("404").send("404 - post does not exist");
     }
@@ -66,7 +63,10 @@ app.post("/singlepost/:id", async (req, res) => {
     const id = req.params.id;
     console.log(req.params.id);
     console.log("Update like count added");
-    const posts = await pool.query("UPDATE posts SET likes = likes + 1 WHERE id = $1", [id]);
+    const posts = await pool.query(
+      "UPDATE posts SET likes = likes + 1 WHERE id = $1",
+      [id]
+    );
   } catch (err) {
     console.error(err.message);
   }
