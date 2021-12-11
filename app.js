@@ -29,9 +29,7 @@ app.get("/create", (req, res) => {
 
 app.get("/", async (req, res) => {
   try {
-    console.log("get posts request has arrived");
-    const posts = await pool.query("SELECT * FROM posts");
-    res.render("posts", { posts: posts.rows });
+   res.redirect("posts")
   } catch (err) {
     console.error(err.message);
   }
@@ -40,7 +38,7 @@ app.get("/", async (req, res) => {
 app.get("/posts", async (req, res) => {
   try {
     console.log("get posts request has arrived");
-    const posts = await pool.query("SELECT * FROM posts");
+    const posts = await pool.query("SELECT * FROM posts ORDER BY id ASC");
     res.render("posts", { posts: posts.rows });
   } catch (err) {
     console.error(err.message);
