@@ -20,7 +20,7 @@
         <h4 class="title"> <%= posts.title %></h4>
         <img class="media" src=" <%= posts.media_url %>" />
         <p class="post-text"> <%= posts.body %></p>
-        <button class="like-icon" id="like-<%= posts.id %>" data-id="<%= posts.id %>" onclick="LikePost(dataset.id)">
+        <button class="like-icon" id="like-<%= posts.id %>" data-id="<%= posts.id %>" data-likes="<%= posts.likes %>" onclick="LikePost(dataset.id, dataset.likes)">
             <img class="icon_url" src="https://cdn-icons-png.flaticon.com/512/25/25297.png" alt="Thumbs up" height="20"/>
             <div class="likes"> <%= posts.likes %></div>
         </button>
@@ -36,9 +36,12 @@
             }).then(window.location.href = '/posts') 
     });
 
-    function LikePost(id) {
+    function LikePost(id, likes) {
         const endpoint = `/singlepost/${id}`
         const button = document.getElementById(`like-${id}`);
+        const likesDiv = button.getElementsByClassName('likes')[0]
+        var newLikes = parseInt(likes) + 1
+        likesDiv.innerHTML = ` ${newLikes}`
         button.disabled = true
 
         fetch(endpoint, {
